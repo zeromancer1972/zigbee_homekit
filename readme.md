@@ -158,28 +158,14 @@ In the top navigation you see "Plugins". First install the plugin to access your
             "name": "Hue",
             "platform": "Hue",
             "nupnp": true,
-            "hosts": [
-                "192.168.178.57",
-                "192.168.178.155:8081"
-            ],
-            "scenes": false,
-            "groups": false,
-            "rules": false,
-            "rooms": false,
-            "lights": true,
             "sensors": true,
-            "nativeHomeKitLights": true,
-            "nativeHomeKitSensors": true,
-            "scenesAsSwitch": false,
+            "lights": true,
+            "hosts": [
+                "127.0.0.1:8081"
+            ],
             "heartrate": 2,
             "anyOn": true,
-            "excludeSensorTypes": [
-                "CLIP",
-                "Geofence",
-                "Daylight"
-            ],
             "users": {
-                "001788FFFE6E4BC7": "-i9xaNNPjTig-evW9GERHut5Q-yEeDV1zoFDC5Gy",
                 "00212EFFFF065201": "AF4EDA19E2"
             }
         }
