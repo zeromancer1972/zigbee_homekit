@@ -198,4 +198,4 @@ You may not need all the options here, I only used them as I also added my Hue b
 
 In order to expose the window contact sensors, I had to enable `sensors` in the config.
 
-Remember: everytime you add a new sensor, light or any other device to the Conbee gateay, you have to restart the Homebridge app to populate it to the Apple Home app. After you did this, the device will appear in Homekit (in the default room) and you can set it up in detail in the Home app.
+Remember: everytime you add a new sensor, light or any other device to the Conbee gateway, you have to restart the Homebridge app to populate it to the Apple Home app. After you did this, the device will appear in Homekit (in the default room) and you can set it up in detail in the Home app.
