@@ -56,7 +56,7 @@ To access portainer, open the URL in your browser of choice and provide the init
 
 `http://yourMachineNameOrIP:9000`
 
-With Portainer you are able to use Homebridge in a Docker container: [Homebridge for Docker](https://github.com/oznu/docker-homebridge).
+With Portainer you are able to use Homebridge in a Docker container: [Homebridge for Docker](https://github.com/oznu/docker-homebridge#docker-compose).
 
 I use this stack config for my Homebridge:
 
@@ -108,7 +108,7 @@ docker run -d \
 
 This spins up the container `deconz` for the so called `Phoscon App`, the UI for the Zigbee gateway to configure your smart gadgets.
 
-As mentioned above, we are going to use also different ports to access this app to preserve the common ports for other purposes. By default, the `deconz` container will use port 80 for HTTP connections. You should modify them in the config file in the folder you just created above:
+As mentioned above, we are going to use also different a port to access this app to preserve the common ports for other purposes. By default, the `deconz` container will use port 80 for HTTP connections. You should modify them in the config file in the folder you just created above:
 
 ```
 nano ~/.local/share/dresden-elektronik/deCONZ/config.ini
@@ -134,3 +134,66 @@ This opens up the screen where your stick should be displayed. Please follow the
 In the end you should see something like this in Portainer when navigating to the `Container` section:
 
 ![Container](container.png)
+
+### Setting up Homebridge
+
+Homebridge is just a software gateway to expose non Homekit devices to the Apple Home app. The benefit of it is that there are tons of plugins available to enrich it's functionality. Besides the Conbee Zigbee bridge I also use plugins to read calendar entries that control my lights and software switches that trigger flows on my Node-RED installation (also runningn in a Docker container on the same machine, but that's a different story). The possibilities are endless.
+
+To access your Homebridge config just open
+
+`http://yourMachineNameOrIP:8083`
+
+in your browser. The default admin credentials are `admin` and `admin`. You should change these in the settings later.
+
+This brings up the UI (similar to this picture):
+
+![Homebridge UI](hb_ui.png)
+
+To add Homebridge to Apple's Home app, simply add a new device and scan the QR code from the homepage. If this does not work, simply use the code that is provided. This adds the Homebridge gateway as a new bridge (like a hardware bridge!) and the Home app might ask you additional question to add devices. When you start there are no devices at all of course. We will add devices now!
+
+In the top navigation you see "Plugins". First install the plugin to access your Conbee Zigbee gateway called "homebridge-hue". Type this name in the field above and hit enter. You will be presented with a search result. Hit "install" on the "homebridge-hue" entry to install it. This might take some time. Please refer to the [documentation of the plugin](https://github.com/ebaauw/homebridge-hue#readme) to setup the Conbee gateway. It basically acts like a Philips Hue bridge. My configuration looks like this for the Zigbee (and a Hue bridge), where the Zigbee gateway is the one using the port 8081:
+
+```json
+{
+            "name": "Hue",
+            "platform": "Hue",
+            "nupnp": true,
+            "hosts": [
+                "192.168.178.57",
+                "192.168.178.155:8081"
+            ],
+            "scenes": false,
+            "groups": false,
+            "rules": false,
+            "rooms": false,
+            "lights": true,
+            "sensors": true,
+            "nativeHomeKitLights": true,
+            "nativeHomeKitSensors": true,
+            "scenesAsSwitch": false,
+            "heartrate": 2,
+            "anyOn": true,
+            "excludeSensorTypes": [
+                "CLIP",
+                "Geofence",
+                "Daylight"
+            ],
+            "users": {
+                "001788FFFE6E4BC7": "-i9xaNNPjTig-evW9GERHut5Q-yEeDV1zoFDC5Gy",
+                "00212EFFFF065201": "AF4EDA19E2"
+            }
+        }
+```
+
+Simply add this part to your configuration JSON to the `platforms` part. The gateway has to be defined using an app key. The app key is provided in the deCONZ interface. Please refer to the Phoscon App documentation.
+
+You may not need all the options here, I only used them as I also added my Hue bridge to the configuration. As Philips Hue is exposed to Homekit automatically, I needed it to be omitted by Homebridge, controlled mainly by
+
+```json
+"nativeHomeKitLights": true,
+"nativeHomeKitSensors": true,
+```
+
+In order to expose the window contact sensors, I had to enable `sensors` in the config.
+
+Remember: everytime you add a new sensor, light or any other device to the Conbee gateay, you have to restart the Homebridge app to populate it to the Apple Home app. After you did this, the device will appear in Homekit (in the default room) and you can set it up in detail in the Home app.
