@@ -207,3 +207,13 @@ In Node-RED I see this:
 Since I removed a bulb from Philips Hue and added it to the Conbee gateway, I really do not see any usage of the Hue bridge at all. Unless you do not want to use this setup and only use the Hue stuff in Homekit natively, you don't need the bridge at all. This evening I removed one bulb in the bedroom from Hue and added it to the Zigbee gateway. Philips Hue bulbs are fully supported here (white, RGB). One benefit: even if the bulb is not powered it does not show up in Homekit as "unreachable". The Zigbee gateway "buffers" that somewhat and this is nice. When powered back on, it is instantly available for control - one thing I did not see with the Hue bridge.
 
 I also bought some cheap white bulbs for the hallway (tint by Müller Licht). They are dimmable only, no color or temperature control at all - but they work great and were added flawlessly to the Conbee environment.
+
+### Ingredients
+
+The following is just a list of hardware you need to get started.
+
+- Raspberry Pi 3/4 (4 is recommended)
+- Power adapter for RPi
+- Conbee 2 USB gateway
+- USB-A extension
+- Micro SD card (8GB minimum)
