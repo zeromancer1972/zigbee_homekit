@@ -149,7 +149,7 @@ This brings up the UI (similar to this picture):
 
 ![Homebridge UI](hb_ui.png)
 
-To add Homebridge to Apple's Home app, simply add a new device and scan the QR code from the homepage. If this does not work, simply use the code that is provided. This adds the Homebridge gateway as a new bridge (like a hardware bridge!) and the Home app might ask you additional question to add devices. When you start there are no devices at all of course. We will add devices now!
+To add Homebridge to Apple's Home app, simply add a new device and scan the QR code from the homepage. If this does not work, simply use the code that is provided. This adds the Homebridge gateway as a new bridge (like a hardware bridge!) and the Home app might ask you additional questions to add devices. When you start there are no devices at all of course. We will add devices now!
 
 In the top navigation you see "Plugins". First install the plugin to access your Conbee Zigbee gateway called "homebridge-hue". Type this name in the field above and hit enter. You will be presented with a search result. Hit "install" on the "homebridge-hue" entry to install it. This might take some time. Please refer to the [documentation of the plugin](https://github.com/ebaauw/homebridge-hue#readme) to setup the Conbee gateway. It basically acts like a Philips Hue bridge. My configuration looks like this for the Zigbee (and a Hue bridge), where the Zigbee gateway is the one using the port 8081:
 
