@@ -20,7 +20,7 @@ Speaking of [Homebridge](https://github.com/homebridge/homebridge), this softwar
 
 The Hue approach, though working fine with the original lights and the Osram sockets, has it's limitations though. I knew from a friend that he's able to use very cheap China stuff from Aqara (Xiaomi) in his home without using Philips or Apple (he is not an Apple user at all). All you need is a Zigbee gateway to support the common Zigbee standard, a simple radio protocol that even can span big distances inside your home across rooms - more than Bluetooth and Wifi whilst having a very low power consumption.
 
-### Zigbee gateway
+### Zigbee Gateway
 
 There are several devices that can act as a local Zigbee gateway. I chose the [Conbee 2 USB stick](https://phoscon.de/en/conbee2) (also available as a RPi module). It's recommended to use this USB stick with a cable in order to avoid interferences with the Pi hardware it self (esp. the Wifi signal). Of course you can use this stick on PCs as well, but you may not run a big machine 24/7 to serve this purpose. A Raspberry Pi is ideal for this kind of work.
 
@@ -131,3 +131,6 @@ Save your changes and then restart the container using the Portainer UI. Once th
 
 This opens up the screen where your stick should be displayed. Please follow the instruction on how to proceed from here to add devices to your network on the [official documentation](https://phoscon.de/en/app/doc).
 
+In the end you should see something like this in Portainer when navigating to the `Container` section:
+
+![Container](container.png)
