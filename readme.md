@@ -1,8 +1,10 @@
 # Zigbee, Homekit and a Pi
 
-In this post I want to summarize my experiences with Zigbee hardware, the various vendors and my personal approach.
+In this post I want to summarize my experiences with Homekit using Zigbee hardware, the various vendors and my personal approach.
 
 I am using smart home stuff for quite a while now and I've not touched all areas, yet. The stuff I use is primarily lighting, sockets and some sensors. The sensors include temperature & co as well as contact sensors for windows.
+
+![Homekit App](homekit_app.png)
 
 ### Philips Hue
 
