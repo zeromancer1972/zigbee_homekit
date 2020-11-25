@@ -185,7 +185,7 @@ In the top navigation you see "Plugins". First install the plugin to access your
         }
 ```
 
-Simply add this part to your configuration JSON to the `platforms` part. The gateway has to be defined using an app key. The app key is provided in the deCONZ interface. Please refer to the Phoscon App documentation.
+Simply add this part to your configuration JSON (menu item `Configuration`) to the `platforms` part. The gateway has to be defined using an app key. The app key is provided in the deCONZ interface. Please refer to the Phoscon App documentation.
 
 You may not need all the options here, I only used them as I also added my Hue bridge to the configuration. As Philips Hue is exposed to Homekit automatically, I needed it to be omitted by Homebridge, controlled mainly by
 
