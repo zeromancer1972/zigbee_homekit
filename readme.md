@@ -199,3 +199,11 @@ You may not need all the options here, I only used them as I also added my Hue b
 In order to expose the window contact sensors, I had to enable `sensors` in the config.
 
 Remember: everytime you add a new sensor, light or any other device to the Conbee gateway, you have to restart the Homebridge app to populate it to the Apple Home app. After you did this, the device will appear in Homekit (in the default room) and you can set it up in detail in the Home app.
+
+### Useful Plugins
+
+As written above, I also use some very handy plugins on my Homebridge.
+
+[homebridge-calendar](https://github.com/grover/homebridge-calendar#readme) allows you to read a public calendar from Google where you can define triggers to control your home. This only triggers that particular "switch" (it will be presented as a sensor in Homekit) from which you then can create an automation to control whether e.g. a light should switch on or off. Useful when you are not at home and you want to mimic your presence. Just create a calendar entry and lights will go on when the event starts and go off when it ends.
+
+[homebridge-http-switch](https://github.com/Supereg/homebridge-http-switch#readme) lets you create a Homekit switch (like a physical one) that can trigger a URL. This URL can then point to a REST service, e.g. a Node-RED endpoint. This then could trigger other stuff - use your imagination! By the way: Node-RED is really cool and can also run on your Pi inside a Docker container!
