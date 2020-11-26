@@ -75,7 +75,7 @@ services:
       - HOMEBRIDGE_CONFIG_UI_PORT=8083
       - TZ=Europe/Berlin
     volumes:
-      - /homebridge
+      - homebridge-data:/homebridge
 ```
 
 You can see, it's automatically coming with a nice UI to configure your Homebridge settings. I recommend to use this port (8083), too, as you may want to run another container in the future that might use port 80 (HTTP), so this keeps this one available. In our case the software for the Conbee gateway runs on port 80 by default, but we are going to also change this setting.

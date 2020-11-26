@@ -1,0 +1,69 @@
+{
+    "bridge": {
+        "name": "Homebridge Wohnzimmer",
+        "pin": "656-92-988",
+        "port": 51826,
+        "username": "CC:22:3D:E3:CE:31"
+    },
+    "accessories": [
+        {
+            "accessory": "HTTP-SWITCH",
+            "name": "NR Switch 1",
+            "switchType": "toggle",
+            "httpMethod": "GET",
+            "onUrl": "http://echobase.local:1880/on?switch=1",
+            "offUrl": "http://echobase.local:1880/off?switch=1"
+        },
+        {
+            "accessory": "HTTP-SWITCH",
+            "name": "NR Switch 2",
+            "switchType": "toggle",
+            "httpMethod": "GET",
+            "onUrl": "http://echobase.local:1880/on?switch=2",
+            "offUrl": "http://echobase.local:1880/off?switch=2"
+        }
+    ],
+    "description": "This is the description",
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8083,
+            "auth": "form",
+            "theme": "auto",
+            "tempUnits": "c",
+            "lang": "auto",
+            "platform": "config"
+        },
+        {
+            "platform": "Calendar",
+            "calendars": [
+                {
+                    "name": "Homebridge Events",
+                    "url": "https://calendar.google.com/calendar/ical/m66p1k36dbk0hro9k6ffnd1mvk%40group.calendar.google.com/public/basic.ics",
+                    "pollingInterval": 5,
+                    "sensors": [
+                        "CAL_WZ",
+                        "CAL_AZ",
+                        "CAL_SZ",
+                        "CAL_FLUR"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Hue",
+            "platform": "Hue",
+            "nupnp": true,
+            "sensors": true,
+            "lights": true,
+            "hosts": [
+                "127.0.0.1:8081"
+            ],
+            "heartrate": 2,
+            "anyOn": true,
+            "users": {
+                "00212EFFFF065201": "AF4EDA19E2"
+            }
+        }
+    ]
+}
