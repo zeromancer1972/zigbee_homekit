@@ -11,16 +11,16 @@
             "name": "NR Switch 1",
             "switchType": "toggle",
             "httpMethod": "GET",
-            "onUrl": "http://echobase.local:1880/on?switch=1",
-            "offUrl": "http://echobase.local:1880/off?switch=1"
+            "onUrl": "http://127.0.0.1:1880/on?switch=1",
+            "offUrl": "http://127.0.0.1:1880/off?switch=1"
         },
         {
             "accessory": "HTTP-SWITCH",
             "name": "NR Switch 2",
             "switchType": "toggle",
             "httpMethod": "GET",
-            "onUrl": "http://echobase.local:1880/on?switch=2",
-            "offUrl": "http://echobase.local:1880/off?switch=2"
+            "onUrl": "http://127.0.0.1:1880/on?switch=2",
+            "offUrl": "http://127.0.0.1:1880/off?switch=2"
         }
     ],
     "description": "This is the description",
